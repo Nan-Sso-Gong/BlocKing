@@ -13,8 +13,8 @@ public class ScreenSize {
     private static ScreenSize screenSize = new ScreenSize();
 
     private ScreenSize() {
-        this.width = 400;
-        this.height=500;
+        this.width = 800;
+        this.height=600;
     }
 
     public static ScreenSize getInstance() {
