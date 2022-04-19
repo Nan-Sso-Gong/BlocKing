@@ -9,9 +9,9 @@ public class KeySettingUI extends JFrame{
     private JPanel mainPanel;
     private ScreenSize screenSize = ScreenSize.getInstance();
     private KeySetting keySetting = KeySetting.getInstance();
-    private JTextField[] keyTextField = new JTextField[6];
-    private int[] keyCode = new int[6];
-    private JLabel[] keyName = new JLabel[6];
+    private JTextField[] keyTextField = new JTextField[7];
+    private int[] keyCode = new int[7];
+    private JLabel[] keyName = new JLabel[7];
     private JButton[] buttons = new JButton[2];;
     private JPanel radioPanel;
     ImageIcon titleImg1 = new ImageIcon("./src/main/java/start/img/title1.png");
@@ -63,6 +63,7 @@ public class KeySettingUI extends JFrame{
                 int turnBlock = keyCode[3];
                 int onetimeBlock = keyCode[4];
                 int stop = keyCode[5];
+                int escape = keyCode[6];
 
                 for (int i = 0; i < keyCode.length; i++) {
                     if (keyCode[i] == 0) {
@@ -91,13 +92,17 @@ public class KeySettingUI extends JFrame{
                                 keyCode[5] = keySetting.getStop();
                                 stop = keyCode[5];
                                 break;
+                            case 6:
+                                keyCode[6] = keySetting.getEscape();
+                                escape = keyCode[6];
+                                break;
 
                         }
 
                     }
                 }
 
-                keySetting.setKeySetting(left, right, turnBlock, downBlock, stop, onetimeBlock);
+                keySetting.setKeySetting(left, right, turnBlock, downBlock, stop, onetimeBlock,escape);
                 new SettingUI();
                 setVisible(false);
             }
@@ -124,7 +129,7 @@ public class KeySettingUI extends JFrame{
 
     private void selectKeySet() {
         radioPanel = new JPanel();
-        GridLayout gridLayout=new GridLayout( 7,2);
+        GridLayout gridLayout=new GridLayout( 8,2);
         radioPanel.setLayout(gridLayout);
         radioPanel.setBackground(Color.BLACK);
         radioPanel.setBorder(BorderFactory.createEmptyBorder(screenSize.getHeight() / 4, 0, 0, 0));
@@ -153,7 +158,11 @@ public class KeySettingUI extends JFrame{
         String stop = KeyEvent.getKeyText(keySetting.getStop());
         keyTextField[5] = new JTextField(stop);
 
-        for (int i = 0; i < 6; i++) {
+        keyName[6] = new JLabel("시작메뉴로");
+        String escape = KeyEvent.getKeyText(keySetting.getEscape());
+        keyTextField[6] = new JTextField(escape);
+
+        for (int i = 0; i < keyTextField.length; i++) {
             keyName[i].setForeground(Color.white);
 
             radioPanel.add(keyName[i]);
