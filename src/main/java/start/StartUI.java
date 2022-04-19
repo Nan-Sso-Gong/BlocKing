@@ -1,8 +1,7 @@
 package start;
 
 import game.GameUI;
-import game.manager.gametype.GameManager_NormalMode;
-import scoreBoard.ScoreBoardUI;
+import scoreBoard.NoItemScoreBoard.ScoreBoardUI;
 import setting.ScreenSize;
 import setting.SettingUI;
 

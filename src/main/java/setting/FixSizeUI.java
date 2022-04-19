@@ -53,6 +53,8 @@ public class FixSizeUI extends JFrame {
         FixSizePanel.add(titleBtn);
     }
 
+
+
     public void selectSize() {
         JPanel radioPanel = new JPanel();
         GridLayout gridLayout=new GridLayout( 3,1);
@@ -60,9 +62,9 @@ public class FixSizeUI extends JFrame {
         radioPanel.setBackground(Color.BLACK);
         radioPanel.setBorder(BorderFactory.createEmptyBorder(screenSize.getHeight()/4,0,0,0));
 
-        radioButtons[0] = new JRadioButton("400*500");
-        radioButtons[1] = new JRadioButton("600*800");
-        radioButtons[2] = new JRadioButton("800*1000");
+        radioButtons[0] = new JRadioButton("800*600");
+        radioButtons[1] = new JRadioButton("1024*768");
+        radioButtons[2] = new JRadioButton("1280*720");
 
         for (int i = 0; i < 3; i++) {
             sizeBtnGroup.add(radioButtons[i]);
@@ -85,17 +87,17 @@ public class FixSizeUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (radioButtons[0].isSelected()) {
                     //400*500
-                    screenSize.setWidth(400);
-                    screenSize.setHeight(500);
+                    screenSize.setWidth(800);
+                    screenSize.setHeight(600);
 
                 } else if (radioButtons[1].isSelected()) {
-                    screenSize.setWidth(600);
-                    screenSize.setHeight(800);
+                    screenSize.setWidth(1024);
+                    screenSize.setHeight(768);
 
                 }
                 else{
-                    screenSize.setWidth(800);
-                    screenSize.setHeight(1000);
+                    screenSize.setWidth(1280);
+                    screenSize.setHeight(720);
 
                 }
 
