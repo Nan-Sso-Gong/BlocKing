@@ -13,6 +13,7 @@ import game.manager.BoardManager;
 import game.manager.GameManager;
 import game.manager.InGameUIManager;
 import game.model.BlockController;
+import javafx.scene.layout.Background;
 import setting.KeySetting;
 
 public class GameManager_NormalMode extends GameManager {
@@ -111,7 +112,7 @@ public class GameManager_NormalMode extends GameManager {
 
     public Step createNewBlock() {
         BlockGenerator.getInstance().addBlock();
-        curBlock = BlockGenerator.getInstance().createBlock();
+        BlockGenerator.getInstance().createBlock();
         InGameUIManager.getInstance().drawNextBlockInfo(BlockGenerator.getInstance().blockQueue.peek());
         blockCount++;
 
@@ -191,7 +192,7 @@ public class GameManager_NormalMode extends GameManager {
         InGameUIManager.getInstance().drawBoard();
     }
 
-    protected void printStatus() {
+    private void printStatus() {
         System.out.printf("\n");
         System.out.printf("score : %d \n", score);
         System.out.printf("curSpeed : %d\n\n", curSpeed);
@@ -218,7 +219,7 @@ public class GameManager_NormalMode extends GameManager {
 
 //#region Utils
 
-    protected void setTimeScale(int scale) {
+    private void setTimeScale(int scale) {
 
         timer.stop();
 
