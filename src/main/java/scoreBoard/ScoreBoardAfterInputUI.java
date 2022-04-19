@@ -1,6 +1,5 @@
-package scoreBoard.NoItemScoreBoard;
+package scoreBoard;
 
-import scoreBoard.User;
 import setting.SaveAndLoad;
 import setting.ScreenSize;
 import start.StartUI;
@@ -104,7 +103,7 @@ public class ScoreBoardAfterInputUI extends JFrame {
 
         scorePanel = new JPanel();
         scorePanel.setBackground(Color.BLACK);
-        GridLayout gridLayout = new GridLayout(listToIndex+4, 3,1,height/30);
+        GridLayout gridLayout = new GridLayout(listToIndex+4, 2,1,height/30);
         scorePanel.setLayout(gridLayout);
         scorePanel.setBorder(BorderFactory.createEmptyBorder(10, 70, 10, 0));
 
@@ -113,7 +112,6 @@ public class ScoreBoardAfterInputUI extends JFrame {
         titleLabel.setForeground(Color.WHITE);
         scorePanel.add(titleLabel);
         scorePanel.add(new JLabel(" "));
-        scorePanel.add(new JLabel(" "));
 
         JLabel nameLabel = new JLabel("이름");
         nameLabel.setForeground(Color.WHITE);
@@ -121,9 +119,6 @@ public class ScoreBoardAfterInputUI extends JFrame {
         JLabel scoreLabel = new JLabel("점수");
         scoreLabel.setForeground(Color.WHITE);
         scorePanel.add(scoreLabel);
-        JLabel modeLabel = new JLabel("MODE");
-        modeLabel.setForeground(Color.WHITE);
-        scorePanel.add(modeLabel);
 
 
 
@@ -137,10 +132,6 @@ public class ScoreBoardAfterInputUI extends JFrame {
                 JLabel userScoreLabel = new JLabel(Integer.toString(scoreList.getList().get(i).getScore()));
                 userScoreLabel.setForeground(Color.ORANGE);
                 scorePanel.add(userScoreLabel);
-
-                JLabel userModeLabel = new JLabel(scoreList.getList().get(i).getMode());
-                userModeLabel.setForeground(Color.ORANGE);
-                scorePanel.add(userModeLabel);
             }
             else {
 
@@ -151,10 +142,6 @@ public class ScoreBoardAfterInputUI extends JFrame {
                 JLabel userScoreLabel = new JLabel(Integer.toString(scoreList.getList().get(i).getScore()));
                 userScoreLabel.setForeground(Color.WHITE);
                 scorePanel.add(userScoreLabel);
-
-                JLabel userModeLabel = new JLabel(scoreList.getList().get(i).getMode());
-                userModeLabel.setForeground(Color.WHITE);
-                scorePanel.add(userModeLabel);
             }
         }
 

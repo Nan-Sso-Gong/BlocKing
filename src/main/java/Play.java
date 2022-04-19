@@ -1,6 +1,9 @@
-import scoreBoard.NoItemScoreBoard.ScoreInputUI;
-import scoreBoard.scoreBoradItem.ItemScoreInputUI;
+import scoreBoard.ScoreBoardUI;
+import scoreBoard.ScoreInputUI;
+import scoreBoard.ScoreList;
+import scoreBoard.User;
 import setting.SaveAndLoad;
+import setting.SettingUI;
 import start.StartUI;
 
 import javax.swing.*;
