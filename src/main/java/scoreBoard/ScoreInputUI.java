@@ -1,10 +1,10 @@
-package scoreBoard.NoItemScoreBoard;
+package scoreBoard;
 
-import scoreBoard.User;
 import setting.SaveAndLoad;
 import setting.ScreenSize;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,7 +20,7 @@ public class ScoreInputUI  extends JFrame{
 
 
     //게임 후 점수를 parameter로 받음
-    public ScoreInputUI(int score,String mode){
+    public ScoreInputUI(int score){
         //JFrame setting
         super("software-tetris");//제목
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 메모리까지 종료
@@ -39,8 +39,8 @@ public class ScoreInputUI  extends JFrame{
 
         this.getContentPane().add(mainPanel,BorderLayout.CENTER);
 
-        createInputScore(score,mode);
-        createCompleteBtn(score,mode);
+        createInputScore(score);
+        createCompleteBtn(score);
         //종료 시 현재 setting값 저장
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent event) {
@@ -54,7 +54,7 @@ public class ScoreInputUI  extends JFrame{
 
     }
 
-    private void createCompleteBtn(int score,String mode) {
+    private void createCompleteBtn(int score) {
         JButton completeInput = new JButton("완료");
         inputScorePanel.add(completeInput);
 
@@ -62,7 +62,7 @@ public class ScoreInputUI  extends JFrame{
         completeInput.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                User user = new User(name.getText(), score,mode);
+                User user = new User(name.getText(), score);
                 new ScoreBoardAfterInputUI(user);
                 setVisible(false);
             }
@@ -70,27 +70,23 @@ public class ScoreInputUI  extends JFrame{
 
     }
 
-    public void createInputScore(int score,String mode) {
+    public void createInputScore(int score) {
         inputScorePanel = new JPanel();
         inputScorePanel.setBackground(Color.BLACK);
 
-        GridLayout gridLayout=new GridLayout( 5,1);
+        GridLayout gridLayout=new GridLayout( 4,1);
         inputScorePanel.setLayout(gridLayout);
 
         String scoreToString = Integer.toString(score);
 
 
-        JLabel scoreLabel = new JLabel("등록점수:"+scoreToString);
-        scoreLabel.setForeground(Color.WHITE);
-        inputScorePanel.add(scoreLabel);
+        JLabel jLabel2 = new JLabel("등록점수:"+scoreToString);
+        jLabel2.setForeground(Color.WHITE);
+        inputScorePanel.add(jLabel2);
 
-        JLabel modeLabel = new JLabel("Mode:"+mode);
-        modeLabel.setForeground(Color.WHITE);
-        inputScorePanel.add(modeLabel);
-
-        JLabel nameLabel = new JLabel("이름입력");
-        nameLabel.setForeground(Color.WHITE);
-        inputScorePanel.add(nameLabel);
+        JLabel jLabel3 = new JLabel("이름입력");
+        jLabel3.setForeground(Color.WHITE);
+        inputScorePanel.add(jLabel3);
         inputScorePanel.add(name);
 
         inputScorePanel.setBorder(BorderFactory.createEmptyBorder(screenSize.getHeight()/4,0,0,0));
