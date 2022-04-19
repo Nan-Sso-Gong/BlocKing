@@ -32,7 +32,6 @@ public class SaveAndLoad {
         keySettingJson.put("turnBlock", keySetting.getTurnBlock());
         keySettingJson.put("oneTimeDown", keySetting.getOneTimeDown());
         keySettingJson.put("stop", keySetting.getStop());
-        keySettingJson.put("escape", keySetting.getEscape());
 
         //스코어보드
         List<User> list = scoreList.getList();
@@ -45,7 +44,6 @@ public class SaveAndLoad {
         for (int i=0;i<size;i++){
             scoreBoardJson.put("name"+i, list.get(i).getName());
             scoreBoardJson.put("score"+i, list.get(i).getScore());
-            scoreBoardJson.put("mode"+i, list.get(i).getMode());
         }
 
         try{
@@ -62,7 +60,7 @@ public class SaveAndLoad {
             keySettingFile.close();
 
             //스코어리스트 10개까지 저장
-            FileWriter scoreListFile = new FileWriter("src/main/java/save/NoItemScoreList.json");
+            FileWriter scoreListFile = new FileWriter("src/main/java/save/ScoreList.json");
             scoreListFile.write(scoreBoardJson.toJSONString());
             scoreListFile.flush();
             scoreListFile.close();
@@ -78,22 +76,29 @@ public class SaveAndLoad {
 
         try{
             //화면 크기 load
+//            FileReader readerToScreenSize = new FileReader("src/main/java/save/ScreenSize.json");
+//            Object screenSizeJson1 = parser.parse(readerToScreenSize);
+//            JSONObject screenSizeJson2 =(JSONObject) screenSizeJson1;
+//            readerToScreenSize.close();
             InputStream getScreenSize = new FileInputStream("src/main/java/save/ScreenSize.json");
             HashMap<String,Object> screenSizeMap = new ObjectMapper().readValue(getScreenSize, HashMap.class);
             screenSize.setWidth((Integer) screenSizeMap.get("width"));
             screenSize.setHeight((Integer) screenSizeMap.get("height"));
 
             //스코어 보드 load
-            InputStream getScoreBoard = new FileInputStream("src/main/java/save/NoItemScoreList.json");
+//            FileReader readerToScoreList = new FileReader("src/main/java/save/ScoreList.json");
+//            Object scoreListJson1 = parser.parse(readerToScoreList);
+//            JSONObject scoreListJson2 =(JSONObject) scoreListJson1;
+//            readerToScoreList.close();
+            InputStream getScoreBoard = new FileInputStream("src/main/java/save/ScoreList.json");
             HashMap<String,Object> scoreBoardMap = new ObjectMapper().readValue(getScoreBoard, HashMap.class);
             System.out.println("scoreBoardMap = " + scoreBoardMap.size());
-            int size = scoreBoardMap.size()/3;
+            int size = scoreBoardMap.size()/2;
             if (size >= 10) {
                 size=10;
             }
             for (int i = 0; i < size; i++) {
-                scoreList.push(new User((String) scoreBoardMap.get("name" + i), (Integer) scoreBoardMap.get("score" + i), (String)scoreBoardMap.get("mode" + i)));
-
+                scoreList.push(new User((String) scoreBoardMap.get("name" + i), (Integer) scoreBoardMap.get("score" + i)));
             }
             scoreList.sortDescByScore();
 
@@ -106,8 +111,7 @@ public class SaveAndLoad {
             int turnBlock = (Integer)getKeySettingMap.get("turnBlock");
             int stop = (Integer)getKeySettingMap.get("stop");
             int oneTimeDown = (Integer)getKeySettingMap.get("oneTimeDown");
-            int escape = (Integer)getKeySettingMap.get("escape");
-            keySetting.setKeySetting(left,right,turnBlock,downBlock,stop,oneTimeDown,escape);
+            keySetting.setKeySetting(left,right,turnBlock,downBlock,stop,oneTimeDown);
 
 
 

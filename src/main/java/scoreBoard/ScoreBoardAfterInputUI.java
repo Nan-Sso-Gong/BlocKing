@@ -1,7 +1,5 @@
-package scoreBoard.scoreBoradItem;
+package scoreBoard;
 
-import scoreBoard.ScoreList;
-import scoreBoard.User;
 import setting.SaveAndLoad;
 import setting.ScreenSize;
 import start.StartUI;
@@ -14,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ItemScoreBoardAfterInputUI extends JFrame {
+public class ScoreBoardAfterInputUI extends JFrame {
 
     private JPanel mainPanel;
     private ScreenSize screenSize = ScreenSize.getInstance();
@@ -30,7 +28,7 @@ public class ItemScoreBoardAfterInputUI extends JFrame {
 
 
     //게임이 끝난 후 사용자에게 점수입력을 받기위해 생성자 parameter로 설정
-    public ItemScoreBoardAfterInputUI(User user){
+    public ScoreBoardAfterInputUI(User user){
         //JFrame setting
         super("software-tetris");//제목
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 메모리까지 종료
@@ -105,15 +103,14 @@ public class ItemScoreBoardAfterInputUI extends JFrame {
 
         scorePanel = new JPanel();
         scorePanel.setBackground(Color.BLACK);
-        GridLayout gridLayout = new GridLayout(listToIndex+4, 3,1,height/30);
+        GridLayout gridLayout = new GridLayout(listToIndex+4, 2,1,height/30);
         scorePanel.setLayout(gridLayout);
         scorePanel.setBorder(BorderFactory.createEmptyBorder(10, 70, 10, 0));
 
 
-        JLabel titleLabel = new JLabel("  스코어 리스트-ItemMode");
+        JLabel titleLabel = new JLabel("   스코어 리스트");
         titleLabel.setForeground(Color.WHITE);
         scorePanel.add(titleLabel);
-        scorePanel.add(new JLabel(" "));
         scorePanel.add(new JLabel(" "));
 
         JLabel nameLabel = new JLabel("이름");
@@ -122,9 +119,6 @@ public class ItemScoreBoardAfterInputUI extends JFrame {
         JLabel scoreLabel = new JLabel("점수");
         scoreLabel.setForeground(Color.WHITE);
         scorePanel.add(scoreLabel);
-        JLabel modeLabel = new JLabel("MODE");
-        modeLabel.setForeground(Color.WHITE);
-        scorePanel.add(modeLabel);
 
 
 
@@ -138,10 +132,6 @@ public class ItemScoreBoardAfterInputUI extends JFrame {
                 JLabel userScoreLabel = new JLabel(Integer.toString(scoreList.getList().get(i).getScore()));
                 userScoreLabel.setForeground(Color.ORANGE);
                 scorePanel.add(userScoreLabel);
-
-                JLabel userModeLabel = new JLabel(scoreList.getList().get(i).getMode());
-                userModeLabel.setForeground(Color.ORANGE);
-                scorePanel.add(userModeLabel);
             }
             else {
 
@@ -152,10 +142,6 @@ public class ItemScoreBoardAfterInputUI extends JFrame {
                 JLabel userScoreLabel = new JLabel(Integer.toString(scoreList.getList().get(i).getScore()));
                 userScoreLabel.setForeground(Color.WHITE);
                 scorePanel.add(userScoreLabel);
-
-                JLabel userModeLabel = new JLabel(scoreList.getList().get(i).getMode());
-                userModeLabel.setForeground(Color.WHITE);
-                scorePanel.add(userModeLabel);
             }
         }
 
