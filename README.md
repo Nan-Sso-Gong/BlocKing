@@ -24,5 +24,5 @@
 
 ### branch
 1. dev
-2. dev1.1, dev1.2 ... (iteration 기준)
+2. dev1.1, dev1.2 ... (sprint 기준)
 3. dev1.0, dev2.0 ... (requirements 기준)

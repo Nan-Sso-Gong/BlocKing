@@ -1,7 +1,6 @@
 package setting;
 
 import game.GameUI;
-import scoreBoard.ScoreBoardUI;
 import scoreBoard.ScoreList;
 import start.StartUI;
 
@@ -156,8 +155,8 @@ public class SettingUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int result = JOptionPane.showConfirmDialog(null, "모든 설정을 초기화 하시겠습니까??","설정 초기화",YES_NO_OPTION);
                 if(result==0){
-                    screenSize.setWidth(400);
-                    screenSize.setHeight(500);
+                    screenSize.setWidth(800);
+                    screenSize.setHeight(600);
 
                     keySetting.resetDefault();
 

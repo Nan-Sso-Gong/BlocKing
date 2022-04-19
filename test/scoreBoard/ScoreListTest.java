@@ -21,8 +21,8 @@ public class ScoreListTest {
     @DisplayName("점수 모두 삭제")
     public void 점수모두삭제(){
         //given
-        User test1 = new User("test1", 100);
-        User test2 = new User("test2", 100);
+        User test1 = new User("test1", 100,"easy");
+        User test2 = new User("test2", 100,"easy");
         //when
         scoreList.deleteAll();
         //then
@@ -34,8 +34,8 @@ public class ScoreListTest {
     @DisplayName("점수  push  기능")
     public void 점수푸쉬(){
         //given
-        User test1 = new User("test1", 100);
-        User test2 = new User("test2", 100);
+        User test1 = new User("test1", 100,"easy");
+        User test2 = new User("test2", 100,"easy");
         //when
         scoreList.push(test1);
         scoreList.push(test2);
@@ -49,9 +49,9 @@ public class ScoreListTest {
     @DisplayName("점수 오름차순 정렬")
     public void ScoreListSortByDescTest() {
         //given
-        User user1 = new User("test1", 100);
-        User user2 = new User("test2", 60);
-        User user3 = new User("test3", 80);
+        User user1 = new User("test1", 100,"easy");
+        User user2 = new User("test2", 60,"easy");
+        User user3 = new User("test3", 80,"easy");
         scoreList.push(user1);
         scoreList.push(user2);
         scoreList.push(user3);
