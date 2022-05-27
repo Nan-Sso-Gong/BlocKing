@@ -8,6 +8,9 @@ import java.util.Arrays;
 
 import game.manager.DualModeUtils.UserNumber;
 import game.model.BlockController;
+import game.manager.gametype.GameManager_TimeAttackMode;
+import game.manager.gametype.GameManager_ItemMode;
+import game.manager.gametype.GameManager_BasicMode;
 
 import javax.swing.*;
 
@@ -403,7 +406,8 @@ public class BoardManager {
 */
                 public void actionPerformed (ActionEvent e)
                 {
-                    if(GameManager.curSpeed > 2500)
+                    if(GameManager_BasicMode.getInstance(boardIndex).curSpeed > 2500|| GameManager_ItemMode.getInstance(boardIndex).curSpeed>2500||
+                            GameManager_TimeAttackMode.getInstance(boardIndex).curSpeed>2500)
                     {
                         System.out.println("hello");
                         phase += 10;

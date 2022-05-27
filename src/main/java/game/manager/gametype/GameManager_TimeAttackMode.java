@@ -241,11 +241,13 @@ public Step checkGameOver() {
     @Override
     protected void gameOver() {
         if(UserNumber.getInstance().user==2){
+            additionalTimer.stop();
             instance.onGameEnd();
             instance2.onGameEnd();
             new GameEndForDualUI(instance.score, instance2.score);
         }
         else{
+            additionalTimer.stop();
             instance.onGameEnd();
             new ScoreInputUI(score,GameInfoManager.getInstance().difficultyToString(difficulty));
         }

@@ -26,9 +26,9 @@ public class SelectGameTypeUI extends JFrame {
     private JRadioButton[] gameModeBtns = new JRadioButton[2];
     private JRadioButton[] difficultyBtns = new JRadioButton[3];
     private ScreenSize screenSize =ScreenSize.getInstance();
-    ImageIcon titleImg1 = new ImageIcon("./src/main/java/start/img/title1.png");
-    ImageIcon titleImg2 = new ImageIcon("./src/main/java/start/img/title2.png");
-    ImageIcon titleImg3 = new ImageIcon("./src/main/java/start/img/title3.png");
+    ImageIcon titleImg1 = new ImageIcon(getClass().getClassLoader().getResource("title1.png"));
+    ImageIcon titleImg2 = new ImageIcon(getClass().getClassLoader().getResource("title2.png"));
+    ImageIcon titleImg3 = new ImageIcon(getClass().getClassLoader().getResource("title3.png"));
 
     public SelectGameTypeUI() {
         //JFrame setting

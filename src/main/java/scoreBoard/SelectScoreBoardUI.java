@@ -23,9 +23,9 @@ public class SelectScoreBoardUI extends JFrame {
     private JRadioButton[] colorSettingBtns = new JRadioButton[2];
     private ScreenSize screenSize =ScreenSize.getInstance();
     private ColorBlind colorBlind = ColorBlind.getInstance();
-    ImageIcon titleImg1 = new ImageIcon("./src/main/java/start/img/title1.png");
-    ImageIcon titleImg2 = new ImageIcon("./src/main/java/start/img/title2.png");
-    ImageIcon titleImg3 = new ImageIcon("./src/main/java/start/img/title3.png");
+    ImageIcon titleImg1 = new ImageIcon(getClass().getClassLoader().getResource("title1.png"));
+    ImageIcon titleImg2 = new ImageIcon(getClass().getClassLoader().getResource("title2.png"));
+    ImageIcon titleImg3 = new ImageIcon(getClass().getClassLoader().getResource("title3.png"));
 
     public SelectScoreBoardUI() {
         //JFrame setting

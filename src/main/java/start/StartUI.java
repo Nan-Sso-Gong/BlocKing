@@ -17,7 +17,7 @@ import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.awt.event.*;
-
+import java.net.*;
 
 
 import static start.IsButtonClicked.btnClicked;
@@ -28,9 +28,10 @@ public class StartUI extends JFrame {
     private ScreenSize screenSize = ScreenSize.getInstance();
     private KeyListener startInteraction;
     public UserNumber userNumber = UserNumber.getInstance();
-    ImageIcon titleImg1 = new ImageIcon("./src/main/java/start/img/title1.png");
-    ImageIcon titleImg2 = new ImageIcon("./src/main/java/start/img/title2.png");
-    ImageIcon titleImg3 = new ImageIcon("./src/main/java/start/img/title3.png");
+
+    ImageIcon titleImg1 = new ImageIcon(getClass().getClassLoader().getResource("title1.png"));
+    ImageIcon titleImg2 = new ImageIcon(getClass().getClassLoader().getResource("title2.png"));
+    ImageIcon titleImg3 = new ImageIcon(getClass().getClassLoader().getResource("title3.png"));
 
     private static StartUI instance;
     public static StartUI getInstance() {

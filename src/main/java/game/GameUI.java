@@ -97,7 +97,7 @@ public class GameUI extends JFrame {
         if(GameInfoManager.getInstance().mode == GameMode.TimeAttackMode)
         {
             System.out.println("test");
-            GameManager_TimeAttackMode.AdditionalTimer(15f);
+            GameManager_TimeAttackMode.AdditionalTimer(62f);
         }
 
         //종료 시 현재 setting값 저장
@@ -181,7 +181,7 @@ public class GameUI extends JFrame {
         scorePane[user].setBackground(Color.BLACK);
         scorePane[user].setForeground(Color.WHITE);
         if(UserNumber.getInstance().user==2) {
-            scorePane[user].setBounds((int) ((this.getWidth()/3.5)+(user*800)),210+this.getWidth()/4,this.getWidth()/5,this.getWidth()/10);
+            scorePane[user].setBounds((int) ((this.getWidth()/3.5)+(user*800)),210+this.getWidth()/4,this.getWidth()/5,this.getWidth()/8);
         }
         else{
             scorePane[user].setBounds((int) ((this.getWidth()/3.5)+(user*800)),60+this.getWidth()/4,this.getWidth()/5,this.getWidth()/8);
@@ -197,7 +197,7 @@ public class GameUI extends JFrame {
             attackPane[user].setBackground(Color.BLACK);
             attackPane[user].setForeground(Color.GRAY);
             attackPane[user].setBorder(border2);
-            attackPane[user].setBounds((int) ((this.getWidth()/3)+(user*800)),100+this.getWidth()/8,this.getWidth()*1/10,this.getWidth()*2/15);
+            attackPane[user].setBounds((int) ((this.getWidth()/3)+(user*800)),100+this.getWidth()/8,this.getWidth()*1/10,this.getWidth()*7/45);
             mainPanel.add(attackPane[user]);
         }
 

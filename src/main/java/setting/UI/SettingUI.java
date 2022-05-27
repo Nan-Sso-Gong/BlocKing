@@ -22,9 +22,9 @@ public class SettingUI extends JFrame {
     private KeySetting keySetting = KeySetting.getInstance();
     private ColorBlind colorBlind = ColorBlind.getInstance();
 
-    public ImageIcon titleImg1 = new ImageIcon("./src/main/java/start/img/title1.png");
-    public ImageIcon titleImg2 = new ImageIcon("./src/main/java/start/img/title2.png");
-    public ImageIcon titleImg3 = new ImageIcon("./src/main/java/start/img/title3.png");
+    ImageIcon titleImg1 = new ImageIcon(getClass().getClassLoader().getResource("title1.png"));
+    ImageIcon titleImg2 = new ImageIcon(getClass().getClassLoader().getResource("title2.png"));
+    ImageIcon titleImg3 = new ImageIcon(getClass().getClassLoader().getResource("title3.png"));
 
     private final String settingList[] = {"화면사이즈 조절", "게임 조작 키 설정", "스코어보드 초기화", "색맹모드", "모든 설정 기본으로 돌리기","시작메뉴"};  //스코어 보드는 테스트용 -> 실제는 게임 시작화면에 있어야함
 
